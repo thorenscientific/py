@@ -1,0 +1,36 @@
+<RCC>
+  <qresource prefix="/img">
+    <file>calculator_black-16.png</file>
+    <file>calculator-16.png</file>
+    <file>canvas-16.png</file>
+    <file>centroid-16.png</file>
+    <file>chart_curve-16.png</file>
+    <file>diagramm-16.png</file>
+    <file>flex-16.png</file>
+    <file>gcp_rms-16.png</file>
+    <file>gcp-16.png</file>
+    <file>linechart-16.png</file>
+    <file>text_superscript-16.png</file>
+    <file>vector-16.png</file>
+    <file>chart-16.png</file>
+    <file>documentadd-16.png</file>
+    <file>image-16.png</file>
+    <file>notepad-16.png</file>
+    <file>pensils-16.png</file>
+    <file>ruler-16.png</file>
+    <file>close16.png</file>
+    <file>info16.png</file>
+    <file>add-16.png</file>
+    <file>refresh-16.png</file>
+    <file>view-16.png</file>
+    <file>pause-16.png</file>
+    <file>network-16.png</file>
+    <file>options-16.png</file>
+    <file>edit-16.png</file>
+    <file>connect-16.png</file>
+    <file>save-16.png</file>
+    <file>run-16.png</file>
+    <file>stop-16.png</file>
+    <file>remove-16.png</file>
+  </qresource>
+</RCC>

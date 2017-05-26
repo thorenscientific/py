@@ -1,0 +1,25 @@
+from classrl1009 import *
+import time
+print("hello, world!!")
+time.sleep(1)
+print("after delay!!")
+r=rl1009()
+print(r.version())
+r.set_led_green()
+time.sleep(1)
+a = 1
+r.set_led_red()
+time.sleep(1)
+a = 1.1
+r.set_led_green()
+time.sleep(1)
+r.set_led_red()
+time.sleep(1)
+r.set_led_green()
+time.sleep(1)
+r.set_led_red()
+time.sleep(1)
+r.set_led_green()
+time.sleep(1)
+r.set_led_red()
+time.sleep(1)

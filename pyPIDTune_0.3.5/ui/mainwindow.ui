@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>PID Tune</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/img/Bus.png</normaloff>:/img/Bus.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayoutSettings">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblPIDModel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="lblProccess">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>90</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="text">
+         <string>None
+Delay : 0.0s, Pade : 1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="lblPID">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="text">
+         <string>None</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblProccessModel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="text">
+         <string>Proccess</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>500</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionReset_Models"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuModels">
+    <property name="title">
+     <string>Proccess</string>
+    </property>
+    <addaction name="actionProccessTF"/>
+    <addaction name="separator"/>
+    <addaction name="actionTime_Domain_Graph"/>
+    <addaction name="actionFreq_Domain_Graph"/>
+   </widget>
+   <widget class="QMenu" name="menuPID">
+    <property name="title">
+     <string>PID</string>
+    </property>
+    <addaction name="actionPID_Controller"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuClosed_Loop">
+    <property name="title">
+     <string>Closed Loop</string>
+    </property>
+    <addaction name="actionCLTime_Domain_Graph"/>
+    <addaction name="actionCLFreq_Domain_Graph"/>
+    <addaction name="actionCLNyquist_Graph"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuModels"/>
+   <addaction name="menuPID"/>
+   <addaction name="menuClosed_Loop"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/close16.png</normaloff>:/img/close16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/info16.png</normaloff>:/img/info16.png</iconset>
+   </property>
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/options-16.png</normaloff>:/img/options-16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings...</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionProccessTF">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/text_superscript-16.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Transfer Function</string>
+   </property>
+   <property name="iconText">
+    <string>Transfer Function</string>
+   </property>
+   <property name="toolTip">
+    <string>Proccess Transfer Function</string>
+   </property>
+  </action>
+  <action name="actionPID_Controller">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/gcp-16.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>PID Controller</string>
+   </property>
+  </action>
+  <action name="actionReset_Models">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/refresh-16.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Reset Models</string>
+   </property>
+  </action>
+  <action name="actionTime_Domain_Graph">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/chart_curve-16.png</normaloff>:/img/chart_curve-16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Time Domain Graphs</string>
+   </property>
+   <property name="toolTip">
+    <string>Proccess Time Domain Graphs</string>
+   </property>
+  </action>
+  <action name="actionFreq_Domain_Graph">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/linechart-16.png</normaloff>:/img/linechart-16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Freq Domain Graphs</string>
+   </property>
+   <property name="toolTip">
+    <string>Proccess Freq Domain Graphs</string>
+   </property>
+  </action>
+  <action name="actionCLTime_Domain_Graph">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/diagramm-16.png</normaloff>:/img/diagramm-16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Time Domain Graphs</string>
+   </property>
+   <property name="toolTip">
+    <string>Closed Loop Time Domain Graphs</string>
+   </property>
+  </action>
+  <action name="actionCLFreq_Domain_Graph">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/vector-16.png</normaloff>:/img/vector-16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Freq Domain Graph</string>
+   </property>
+   <property name="toolTip">
+    <string>Closed Loop Freq Domain Graph</string>
+   </property>
+  </action>
+  <action name="actionCLNyquist_Graph">
+   <property name="icon">
+    <iconset resource="icons/pyPIDTune.qrc">
+     <normaloff>:/img/centroid-16.png</normaloff>:/img/centroid-16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nyquist Graph</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="icons/pyPIDTune.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

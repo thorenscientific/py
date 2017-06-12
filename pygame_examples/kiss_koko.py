@@ -129,7 +129,7 @@ def main():
 #Initialize Everything
     pygame.init()
     screen = pygame.display.set_mode((468*2, 60*4))
-    pygame.display.set_caption('Monkey Fever')
+    pygame.display.set_caption('Priya Chasing Koko')
     pygame.mouse.set_visible(0)
 
 #Create The Backgound
@@ -140,7 +140,7 @@ def main():
 #Put Text On The Background, Centered
     if pygame.font:
         font = pygame.font.Font(None, 36)
-        text = font.render("Pummel The Chimp, And Win $$$", 1, (10, 10, 10))
+        text = font.render("Kiss Koko, And Win $$$", 1, (10, 10, 10))
         textpos = text.get_rect(centerx=background.get_width()/2)
         background.blit(text, textpos)
 

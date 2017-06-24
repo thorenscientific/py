@@ -1,3 +1,5 @@
+# A simple script demonstrating duck typing...
+
 print "How trippy are Python Types??"
 print "Let's start with x=1...."
 x = 1

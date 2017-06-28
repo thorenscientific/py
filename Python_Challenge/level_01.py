@@ -12,19 +12,20 @@ Created on Sat Oct 22 22:27:23 2016
 # get "ocr", and voila! next URL.
 
 # Trantab seems to crash Spyder now!!
-"""
-from string import maketrans
-intab  = "abcdefghijklmnopqrstuvwxyz"
-outtab = "cdefghijklmnopqrstuvwxyzab"
-print("Making trantab...")
-trantab = maketrans(intab, outtab)
+dotrantab = False
+if dotrantab == True:
+    from string import maketrans
+    intab  = "abcdefghijklmnopqrstuvwxyz"
+    outtab = "cdefghijklmnopqrstuvwxyzab"
+    print("Making trantab...")
+    trantab = maketrans(intab, outtab)
+    
+    str = "this is string example....wow!!!"
+    
+    str = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj"
+    print (str)
+    print str.translate(trantab)
 
-str = "this is string example....wow!!!"
-
-str = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj"
-print (str)
-print str.translate(trantab)
-"""
 
 with open("ocr_string.txt") as f:
     content = f.readlines()

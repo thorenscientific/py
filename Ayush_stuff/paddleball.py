@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+   # -*- coding: utf-8 -*-
 """
 Created on Thu Aug 24 20:20:43 2017
 
@@ -8,13 +8,7 @@ Created on Thu Aug 24 20:20:43 2017
 from Tkinter import *
 import random
 import time
-tk=Tk()
-tk.title("Game")
-tk.resizable(0,0)
-tk.wm_attributes("-topmost",1)
-canvas=Canvas(tk,width=500,height=400,bd=0,highlightthickness=0)
-canvas.pack()
-tk.update()
+
 
 class Ball:
     def __init__(self, canvas, paddle, color) :
@@ -43,10 +37,12 @@ class Ball:
             self.y = 3
         if pos[3] >= self.canvas_height:
             self.hit_bottom = True
+            print('dude ya hit ze buttom')
         if pos[3] >= self.canvas_height:
             self.y = -3
         if self.hit_paddle(pos) == True:
             self.y = -3
+            print('dude! you are on fire! you are bl4z1ng your own trail! stay confident. dont let the bubble gum   thingy hit the ground!')
         if pos[0] <=0:
             self.x = 3
         if pos[2] >= self.canvas_width:
@@ -63,12 +59,6 @@ class Paddle:
         self.canvas_width = self.canvas.winfo_width()
         self.canvas.bind_all('<KeyPress-Left>', self.turn_left)
         self.canvas.bind_all('<KeyPress-Right>', self.turn_right)
-    def turn_left(self, evt):
-        self.x = -4
-        
-    def turn_right(self, evt):
-        self.x = 4
-        
 
     def draw(self):
         self.canvas.move(self.id, self.x, 0)
@@ -78,6 +68,21 @@ class Paddle:
         elif pos[2] >= self.canvas_width:
             self.x = 0
 
+    def turn_left(self, evt):
+        self.x = -4
+        
+    def turn_right(self, evt):
+        self.x = 4
+        
+
+
+tk=Tk()
+tk.title("Game")
+tk.resizable(0,0)
+tk.wm_attributes("-topmost",1)
+canvas=Canvas(tk,width=500,height=400,bd=0,highlightthickness=0)
+canvas.pack()
+tk.update()
 
 paddle = Paddle(canvas, 'blue')
 ball = Ball(canvas, paddle, 'red')

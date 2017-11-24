@@ -73,9 +73,9 @@ class Paddle:
         
     def turn_right(self, evt):
         self.x = 4
+
         
-
-
+        
 tk=Tk()
 tk.title("Game")
 tk.resizable(0,0)

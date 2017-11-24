@@ -21,10 +21,14 @@ if dotrantab == True:
     trantab = maketrans(intab, outtab)
     
     str = "this is string example....wow!!!"
-    
     str = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj"
     print (str)
+    print("\n")
     print str.translate(trantab)
+    print("\n")
+    print("A-Ha! Now apply on the url, map\n")
+    print "map".translate(trantab)
+    print("\n")
 
 
 with open("ocr_string.txt") as f:

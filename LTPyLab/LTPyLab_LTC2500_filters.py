@@ -156,7 +156,8 @@ bin_width = samplerate / (2*fftlength)
 adc_noise = 22.3e-6 
 print("ADC total noise: " + str(adc_noise))
 print("bin Width: " + str(bin_width))
-print("ADC noise density: " + str(adc_noise / np.sqrt(samplerate/2)))
+theo_noise = (adc_noise / np.sqrt(samplerate/2))
+print("Theoretical ADC noise density: " + str(theo_noise))
 
 
 smoothed_adc_psd = np.zeros(fftlength)
@@ -165,13 +166,20 @@ for i in range(0, averages):
     # Generate some ADC samples with Gaussian noise. Average a bunch of runs to
     # see where the real noise floor is.
     adc_samples = np.random.normal(loc=0, scale=adc_noise, size=fftlength)
+    adc_samples_fft = abs(np.fft.fft(adc_samples))/fftlength
     # Calculate the psd and scale properly - divide FFT by FFT length,
     # Then divied by the bin width to get density directly.
     #### DOUBLE CHECK THIS - the double-sided spectrum amplitude looks a bit low...
-    adc_psd = (abs(np.fft.fft(adc_samples))/fftlength)/np.sqrt(bin_width)
+#    adc_psd = np.sqrt(adc_samples_fft*adc_samples_fft/bin_width)
+    adc_psd = adc_samples_fft/np.sqrt(bin_width)
+    
     smoothed_adc_psd += (adc_psd / averages)
 
 #smoothed_adc_psd = np.convolve(np.ones(64), adc_psd)/64
+
+measured_adc_psd = np.average(smoothed_adc_psd)
+print("Measured ADC PSD: " + str(measured_adc_psd))
+print ("error %" + str(measured_adc_psd/theo_noise))
 
 # Here we're going to do the opposite of what we did with the ADC, that is,
 # We're going to model a resistor's noise in the frequency domain and see what it

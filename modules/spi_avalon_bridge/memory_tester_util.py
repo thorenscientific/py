@@ -41,8 +41,8 @@ from ltc_spi_avalon import *
 # Two-To-One MUX
 # ************************************************
 
-# Description:	The component is controlled by a host or master through the 
-#                CSR slave port to control which streaming data input will be 
+# Description:	The component is controlled by a host or main through the 
+#                CSR subordinate port to control which streaming data input will be 
 #                routed to the streaming data output.
 
 # Register map:
@@ -124,8 +124,8 @@ class Mux:
 # One-To-Two DEMUX
 # ************************************************
 
-# Description:	The component is controlled by a host or master through the CSR
-#               slave port to control which streaming data output the input
+# Description:	The component is controlled by a host or main through the CSR
+#               subordinate port to control which streaming data output the input
 #               streaming data will be routed to.
 
 # Register map:
@@ -209,9 +209,9 @@ class Demux:
 # Custom Pattern Checker
 # ************************************************
 
-# Description:  This component is programmed via a host or master through the 
-#               pattern slave port to program the internal test memory.  When 
-#               the host writes to the start bit of the CSR slave port the 
+# Description:  This component is programmed via a host or main through the 
+#               pattern subordinate port to program the internal test memory.  When 
+#               the host writes to the start bit of the CSR subordinate port the 
 #               component will begin to send the contents from the internal 
 #               memory to the data streaming port. You should use the custom 
 #               pattern generator component with this component.
@@ -406,9 +406,9 @@ class Checker:
 # ************************************************
 
 # Description:  
-# This component is programmed via a host or master through the pattern slave 
+# This component is programmed via a host or main through the pattern subordinate 
 # port to program the internal test memory. When the hos writes to the start 
-# bit of the CSR slave port the component will begin to send the contents from 
+# bit of the CSR subordinate port the component will begin to send the contents from 
 # the internal memory to the data streaming port. You should use the custom 
 # pattern checker component with this component.
 
@@ -585,17 +585,17 @@ class Generator:
 #                r/w enable' is set to 0 then the block size represents how much
 #                data will be written before a read verification cycle starts.  
 #                Bits 31-24 are used to specify the block trail. The block trail
-#                represents how many blocks the read master should trail the 
-#                write master by. A block trail of 0 means that the block is 
+#                represents how many blocks the read main should trail the 
+#                write main by. A block trail of 0 means that the block is 
 #                written out and read back immediately. A block train of 1 means
 #                that two blocks will be written followed by reading the first block.
 # Address 16 --> Bit 0 is used to enable concurrent read and write block 
-#                operations. When disabled the read master remains idle while 
-#                the write master operates. When enabled the read and write 
-#                masters can operate concurrently presenting a mix of read and
+#                operations. When disabled the read main remains idle while 
+#                the write main operates. When enabled the read and write 
+#                mains can operate concurrently presenting a mix of read and
 #                write accesses to the memory. Bit 24 is used to start the 
-#                memory test masters and will remain enabled until the last 
-#                read data returns to the read master.
+#                memory test mains and will remain enabled until the last 
+#                read data returns to the read main.
 # Address 20 --> N/A
 # Address 24 --> Timer resolution in terms of system clock cycles. If the 
 #                system clock speed is 100MHz (T=10ns) then setting the 

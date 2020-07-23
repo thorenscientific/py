@@ -9,51 +9,51 @@ except:
 class ParamsDialog(tkSimpleDialog.Dialog):
     """A dialog to get the hardware parameters"""
     
-    def body(self, master):
+    def body(self, main):
 
         self.wm_iconbitmap('linearIcon.ico')
         self.title('Choose Hardware Parameters')
 
         self.result = False
         
-        self.deviceLabel = Label(master, text='Device')
+        self.deviceLabel = Label(main, text='Device')
         self.deviceLabel.grid(row=0, column=0, columnspan=2, sticky=SW)
-        self.deviceCombo = Combobox(master, ['DC718', 'DC890'], relief=RIDGE, bd=4, textWidth=20)
+        self.deviceCombo = Combobox(main, ['DC718', 'DC890'], relief=RIDGE, bd=4, textWidth=20)
         self.deviceCombo.grid(row=1, column=0, columnspan=2, sticky=NW)
 
-        self.nChannelsLabel = Label(master, text='# Channels')
+        self.nChannelsLabel = Label(main, text='# Channels')
         self.nChannelsLabel.grid(row=2, column=0, columnspan=2, sticky=SW)
         self.nChannelsText  = StringVar()
         self.nChannelsText.set('1')
-        self.nChannelsEntry = Entry(master, textvariable=self.nChannelsText)
+        self.nChannelsEntry = Entry(main, textvariable=self.nChannelsText)
         self.nChannelsEntry.grid(row=3, column=0, columnspan=2, sticky=NW)
 
-        self.nBitsLabel = Label(master, text='# Bits')
+        self.nBitsLabel = Label(main, text='# Bits')
         self.nBitsLabel.grid(row=4, column=0, sticky=SW)
         self.nBitsText  = StringVar()
         self.nBitsText.set('16')
-        self.nBitsEntry = Entry(master, textvariable=self.nBitsText)
+        self.nBitsEntry = Entry(main, textvariable=self.nBitsText)
         self.nBitsEntry.grid(row=5, column=0, sticky=NW, padx=5)
 
-        self.alignmentLabel = Label(master, text='Alignment')
+        self.alignmentLabel = Label(main, text='Alignment')
         self.alignmentLabel.grid(row=4, column=1, sticky=SW)
         self.alignmentText  = StringVar()
         self.alignmentText.set('16')
-        self.alignmentEntry = Entry(master, textvariable=self.alignmentText)
+        self.alignmentEntry = Entry(main, textvariable=self.alignmentText)
         self.alignmentEntry.grid(row=5, column=1, sticky=NW, padx=5)
 
         self.isBipolar = IntVar()
-        self.isBipolarCheck = Checkbutton(master, text='Bipolar', variable=self.isBipolar)
+        self.isBipolarCheck = Checkbutton(main, text='Bipolar', variable=self.isBipolar)
         self.isBipolarCheck.grid(row=0, column=2, rowspan=2, sticky=W)
 
-        self.clockEdgeLabel = Label(master, text='Clock Edge')
+        self.clockEdgeLabel = Label(main, text='Clock Edge')
         self.clockEdgeLabel.grid(row=2, column=2, sticky=SW)
-        self.clockEdgeCombo = Combobox(master, ['POS_EDGE', 'NEG_EDGE'], relief=RIDGE, bd=4, textWidth=20)
+        self.clockEdgeCombo = Combobox(main, ['POS_EDGE', 'NEG_EDGE'], relief=RIDGE, bd=4, textWidth=20)
         self.clockEdgeCombo.grid(row=3, column=2, sticky=NW)
 
-        self.fpgaLoadLabel = Label(master, text='FPGA Load')
+        self.fpgaLoadLabel = Label(main, text='FPGA Load')
         self.fpgaLoadLabel.grid(row=4, column=2, sticky=SW)
-        self.fpgaLoadCombo = Combobox(master, ['NONE', 'CMOS', 'LVDS', 'S1407', 'S1408', \
+        self.fpgaLoadCombo = Combobox(main, ['NONE', 'CMOS', 'LVDS', 'S1407', 'S1408', \
                                                'S2308', 'S2366', 'DCMOS', 'DLVDS'], \
                                       relief=RIDGE, bd=4, textWidth=20)
         self.fpgaLoadCombo.grid(row=5, column=2, sticky=NW)
@@ -70,11 +70,11 @@ class ParamsDialog(tkSimpleDialog.Dialog):
 
 class Combobox(Frame):
     '''A compound widget that lets you type or pick from a drop-down'''
-    def __init__(self, master, entries, textWidth=None, **options):
+    def __init__(self, main, entries, textWidth=None, **options):
     
-        self.master = master
+        self.main = main
     
-        Frame.__init__(self, master, options)
+        Frame.__init__(self, main, options)
         
         # keep track of the items
         self.entries = entries

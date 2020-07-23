@@ -37,7 +37,7 @@ class DC590_CLASS(object):
     def __init__(self,timeout=0.1,show_errors=False,baudrate=115200,Linduino=False):
         """DC590 Class Constructor."""
         self.__timeout=timeout                #Communication timeout
-        self.__ack=True                       #I2C slave ack status
+        self.__ack=True                       #I2C subordinate ack status
         self.__count=0                        #The number of DC590's connected
         self.__connected=False                #Serial connection OK
         self.__port_list=[]                   #List of COMM ports with DC590's connected
@@ -379,7 +379,7 @@ class DC590_CLASS(object):
         """SMBUS read result: get the result of an smbus read or write and check for ACK """
         data_string=self.read()                          #read the result from the DC590
         if data_string.find("N")!=-1:                    #check for N (not acknowlege)
-            if self.__show_errors: print "Slave did not acknowledge"
+            if self.__show_errors: print "Subordinate did not acknowledge"
             self.__ack=False
         else:
             self.__ack=True

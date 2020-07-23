@@ -333,7 +333,7 @@ try:
                 
                 #print str(failure_detected) + " failure detected variable"
                 bytes_tested = length_counter
-                # The timer only runs while the masters are moving data so 
+                # The timer only runs while the mains are moving data so 
                 # we can read the timer result here                    
                 test_time = RamTestController.read_timer(
                     dc590,
